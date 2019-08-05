@@ -27,3 +27,7 @@ header input {
   border-bottom: 3px solid gray;
   margin: 20px 0;
 }
+
+.template {
+  display: none;
+}
