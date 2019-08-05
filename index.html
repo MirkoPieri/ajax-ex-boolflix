@@ -12,14 +12,26 @@
   </head>
   <body>
     <main>
+      <header>
+        <input type="text" name="text" placeholder="Cerca..">
+        <button type="button" name="button">VAI</button>
+      </header>
 
+      <div class="general">
 
+      </div>
 
 
 
 
 
       <script id="template" type="text/x-handlebars-template">
+        <div class="film">
+          <h2>Titolo: {{titolo}}</h2>
+          <h2>Titolo Originale: {{originalTitle}}</h2>
+          <span>Lingua: {{lingua}}</span>
+          <span>Valutazione: {{voto}}</span>
+        </div>
       </script>
 
     </main>

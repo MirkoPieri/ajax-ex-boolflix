@@ -3,3 +3,27 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+
+header button, header input {
+  margin: 20px 0;
+}
+
+header input {
+  padding-left: 10px;
+  margin-left: 20px;
+}
+
+.general span {
+  display: block;
+  font-size: 15pt;
+  font-weight: bold;
+}
+.general {
+  padding: 30px;
+}
+
+.general .film {
+  border-bottom: 3px solid gray;
+  margin: 20px 0;
+}
