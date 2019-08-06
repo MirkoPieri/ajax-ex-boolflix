@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>Boolfix</title>
     <link rel="stylesheet" href="master.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/it.js" charset="utf-8"></script>
@@ -13,8 +12,13 @@
   <body>
     <main>
       <header>
-        <input type="text" name="text" placeholder="Cerca..">
-        <button type="button" name="button">VAI</button>
+        <section>
+          <a href="#">BoolFix</a>
+        </section>
+
+        <section>
+          <input type="text" name="text" placeholder="Cerca..">
+        </section>
       </header>
 
       <div class="general">
@@ -26,7 +30,8 @@
 
 
       <script id="template" type="text/x-handlebars-template">
-        <div class="film {{numero}}">
+        <div class="film">
+          <img src="{{url}}" alt="">
           <h2>Titolo: {{titolo}}</h2>
           <h2>Titolo Originale: {{originalTitle}}</h2>
           <p>Lingua:</p>
@@ -34,6 +39,8 @@
           <br>
           <span>Valutazione:</span>
           <span class="valutazione">{{voto}}</span>
+          <br>
+          <p>Tipo: {{tipo}}
         </div>
       </script>
 

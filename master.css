@@ -4,16 +4,6 @@
   box-sizing: border-box;
 }
 
-
-header button, header input {
-  margin: 20px 0;
-}
-
-header input {
-  padding-left: 10px;
-  margin-left: 20px;
-}
-
 .general .film > p {
     font-size: 15pt;
     font-weight: bold;
@@ -37,4 +27,41 @@ header input {
 
 .template {
   display: none;
+}
+
+/* header */
+header {
+  height: 150px;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+}
+
+section {
+  width: 50%;
+  position: relative;
+}
+
+header section input {
+  padding-left: 10px;
+  position: absolute;
+  left: 70%;
+  top: 70%;
+  transform: translate(-70%, -70%);
+  height: 30px;
+  width: 200px;
+  border-radius: 10px;
+}
+
+header section a {
+  font-size: 40pt;
+  color: #e50914;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  position: absolute;
+  left: 20%;
+  top: 50%;
+  transform: translate(-20%, -50%);
 }
