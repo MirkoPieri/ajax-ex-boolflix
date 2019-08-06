@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background: lightgray;
+}
+
 .general .film > p {
     font-size: 15pt;
     font-weight: bold;
@@ -17,12 +21,22 @@
   display: inline;
 }
 .general {
-  padding: 30px;
+  margin: 0 auto;
+  padding: 200px 0;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .general .film {
   border-bottom: 3px solid gray;
   margin: 20px 0;
+  width: calc(100% / 5);
+}
+
+.general .film img:first-child{
+  border: 1px solid white;
 }
 
 .template {
@@ -36,6 +50,7 @@ header {
   background-color: black;
   display: flex;
   justify-content: space-between;
+  position: fixed;
 }
 
 section {
