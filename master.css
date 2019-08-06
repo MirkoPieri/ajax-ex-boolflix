@@ -14,10 +14,10 @@ header input {
   margin-left: 20px;
 }
 
-.general p {
-    display: block;
+.general .film > p {
     font-size: 15pt;
     font-weight: bold;
+    display: inline;
 }
 
 .general span {

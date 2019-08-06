@@ -29,11 +29,12 @@ $("header button").click(function() {
             // modifica del voto ad una scala da 1 a 5 con arrotondamento per eccesso
             var stella = arrayRisultati[i].vote_average / 2;
             var votoStella = Math.round(stella);
+            // variabile per salvare la lingua
+            var language = arrayRisultati[i].original_language;
             // condizione se il film è senza classificazione
             if (votoStella === 0) {
               votoStella = "Non Classificato";
             }
-
             // stampa dei risultati a schermo
             var context = {titolo: arrayRisultati[i].title, originalTitle: arrayRisultati[i].original_title, lingua: arrayRisultati[i].original_language, voto: votoStella};
             var html = template(context);
@@ -58,6 +59,28 @@ $("header button").click(function() {
                 case votoStella === 5:
                 $(this).replaceWith('<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">');
                   break;
+                default:
+              }
+            });
+
+            // funzione per sostituire nome lingua film con bandiera corrispondente
+            $(".film .lingua").each(function() {
+              switch (true) {
+                case language === "en":
+                  $(this).replaceWith('<img src="image/en.png" alt="lingua">');
+                  break;
+                case language === "it":
+                  $(this).replaceWith('<img src="image/it.png" alt="lingua">');
+                  break;
+                case language === "et":
+                  $(this).replaceWith('<img src="image/et.png" alt="lingua">');
+                  break;
+                case language === "pt":
+                $(this).replaceWith('<img src="image/pt.png" alt="lingua">');
+                  break;
+                  case language === "":
+                  $(this).replaceWith('Lingua non disponibile');
+                    break;
                 default:
               }
             });
