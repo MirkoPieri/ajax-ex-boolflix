@@ -196,5 +196,9 @@ $.ajax (
 )
 }
 
+// $(".general .film").on("mouseenter", function() {
+//
+//   $(".info").addClass("active");
+// });
 
 });

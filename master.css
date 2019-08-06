@@ -33,6 +33,7 @@ body {
   border-bottom: 3px solid gray;
   margin: 20px 0;
   width: calc(100% / 5);
+  position: relative;
 }
 
 .general .film img:first-child{
@@ -51,6 +52,7 @@ header {
   display: flex;
   justify-content: space-between;
   position: fixed;
+  z-index: 10000;
 }
 
 section {
@@ -79,4 +81,13 @@ header section a {
   left: 20%;
   top: 50%;
   transform: translate(-20%, -50%);
+}
+
+.info {
+  display: none;
+  position: absolute;
+}
+
+.active {
+  display: block;
 }
