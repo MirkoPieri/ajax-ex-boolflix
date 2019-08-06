@@ -33,12 +33,35 @@ $("header button").click(function() {
             if (votoStella === 0) {
               votoStella = "Non Classificato";
             }
+
             // stampa dei risultati a schermo
             var context = {titolo: arrayRisultati[i].title, originalTitle: arrayRisultati[i].original_title, lingua: arrayRisultati[i].original_language, voto: votoStella};
             var html = template(context);
             $(".general").append(html);
-          }
+            console.log(votoStella, "questo voto stella");
 
+            // funzione per sostituire le varie valutazioni con le rispettive stelle
+            $(".film .valutazione").each(function() {
+              switch (true) {
+                case votoStella === 1:
+                  $(this).replaceWith('<img src="image/star.png" alt="stella">');
+                  break;
+                case votoStella === 2:
+                  $(this).replaceWith('<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">');
+                  break;
+                case votoStella === 3:
+                  $(this).replaceWith('<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">');
+                  break;
+                case votoStella === 4:
+                $(this).replaceWith('<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">');
+                  break;
+                case votoStella === 5:
+                $(this).replaceWith('<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">');
+                  break;
+                default:
+              }
+            });
+          }
       },
       error: function (richiesta,stato,errore) {
         alert("problema sul server", errore);
