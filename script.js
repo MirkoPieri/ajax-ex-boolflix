@@ -26,13 +26,20 @@ $("header input").keyup(function() {
       data: {"query": ricercaUtente}, //query per ricerca film digitato
       method: "GET",
       success: function(data) {
-
         var risultato = data;
         console.log(risultato);
         var arrayRisultati = risultato.results;
         var lunghezza = arrayRisultati.length;
         console.log(lunghezza);
-
+        // condizione se esiste qualcosa cercata dall'utente
+        if (lunghezza === 0) {
+          var nessunRisultato = '"' + ricercaUtente + '"' + ", " + "nessun Film trovato.";
+          var source   = document.getElementById("template1").innerHTML;
+          var template = Handlebars.compile(source);
+          var context = {notfound: nessunRisultato};
+          var html = template(context);
+          $(".general").append(html);
+        } else {
         // handlebars per stampare su schermo i risultati
         var source   = document.getElementById("template").innerHTML;
         var template = Handlebars.compile(source);
@@ -99,6 +106,7 @@ $("header input").keyup(function() {
               }
             });
           }
+        }
       },
       error: function (richiesta,stato,errore) {
         alert("problema sul server", errore);
@@ -122,7 +130,14 @@ $.ajax (
       var arrayRisultatiTv = risultatoTv.results;
       var lunghezzaTv = arrayRisultatiTv.length;
       console.log(lunghezzaTv);
-
+      if (lunghezzaTv === 0) {
+            var nessunRisultato = '"' + ricercaUtente + '"' + ", " + "nessuna serieTv trovata.";
+            var source   = document.getElementById("template1").innerHTML;
+            var template = Handlebars.compile(source);
+            var context = {notfound: nessunRisultato};
+            var html = template(context);
+            $(".general").append(html);
+          } else {
       // handlebars per stampare su schermo i risultati
       var source   = document.getElementById("template").innerHTML;
       var template = Handlebars.compile(source);
@@ -187,6 +202,7 @@ $.ajax (
               default:
             }
           });
+        }
         }
     },
     error: function (richiesta,stato,errore) {

@@ -40,7 +40,6 @@ body {
   padding: 200px 0;
   width: 90%;
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
 }
 
@@ -62,9 +61,6 @@ body {
   border: 3px solid white;
 }
 
-/* .template {
-  display: none;
-} */
 
 /* header */
 header {
@@ -120,4 +116,12 @@ header section a {
 .info.active {
   display: block;
   background-color: black;
+}
+
+.nessuntrovato p {
+  font-size: 20pt;
+}
+
+.nessuntrovato {
+  margin-right: 50px;
 }
