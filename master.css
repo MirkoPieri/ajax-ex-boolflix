@@ -8,18 +8,33 @@ body {
   background: lightgray;
 }
 
-.general .film > p {
-    font-size: 15pt;
-    font-weight: bold;
+.general .film .imageFilm .info p {
+    font-size: 13pt;
     display: inline;
+    color: white;
+    font-weight: normal;
 }
 
-.general span {
-  display: block;
-  font-size: 15pt;
-  font-weight: bold;
-  display: inline;
+.general .film .imageFilm .info span {
+    font-size: 15pt;
+    display: inline;
+    color: white;
+    font-weight: bold;
 }
+
+.general .film .imageFilm .info .overview {
+  height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.general .film .info h2 {
+    font-size: 13pt;
+    display: inline;
+    color: white;
+}
+
 .general {
   margin: 0 auto;
   padding: 200px 0;
@@ -30,19 +45,26 @@ body {
 }
 
 .general .film {
-  border-bottom: 3px solid gray;
   margin: 20px 0;
   width: calc(100% / 5);
+}
+
+.imageFilm {
   position: relative;
+  width: 100%;
+}
+
+.general .film img {
+  cursor: pointer;
 }
 
 .general .film img:first-child{
-  border: 1px solid white;
+  border: 3px solid white;
 }
 
-.template {
+/* .template {
   display: none;
-}
+} */
 
 /* header */
 header {
@@ -83,11 +105,19 @@ header section a {
   transform: translate(-20%, -50%);
 }
 
-.info {
+.film .info {
   display: none;
   position: absolute;
+  width: 306px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  word-wrap: break-word;
+  padding: 10px 10px;
+  border: 3px solid white;
 }
 
-.active {
+.info.active {
   display: block;
+  background-color: black;
 }

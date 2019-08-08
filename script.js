@@ -50,7 +50,7 @@ $("header input").keyup(function() {
             var immagine = arrayRisultati[i].poster_path;
             console.log(immagine, "immagine");
             // stampa dei risultati a schermo
-            var context = {titolo: arrayRisultati[i].title, originalTitle: arrayRisultati[i].original_title, lingua: arrayRisultati[i].original_language, voto: votoStella, tipo: "Film", url: 'https://image.tmdb.org/t/p/w300' + immagine};
+            var context = {titolo: arrayRisultati[i].title, originalTitle: arrayRisultati[i].original_title, lingua: arrayRisultati[i].original_language, voto: votoStella, tipo: "Film", url: 'https://image.tmdb.org/t/p/w300' + immagine, overview: arrayRisultati[i].overview };
             var html = template(context);
             $(".general").append(html);
 
@@ -139,7 +139,7 @@ $.ajax (
           // variabile per salvare url immagine
           var immagine = 'https://image.tmdb.org/t/p/w300' + arrayRisultatiTv[i].poster_path;
           // stampa dei risultati a schermo
-          var context = {titolo: arrayRisultatiTv[i].name, originalTitle: arrayRisultatiTv[i].original_name, lingua: arrayRisultatiTv[i].original_language, voto: votoStella, tipo: 'Tv', url: immagine};
+          var context = {titolo: arrayRisultatiTv[i].name, originalTitle: arrayRisultatiTv[i].original_name, lingua: arrayRisultatiTv[i].original_language, voto: votoStella, tipo: 'Tv', url: immagine, overview: arrayRisultatiTv[i].overview};
           var html = template(context);
           $(".general").append(html);
 
@@ -195,10 +195,15 @@ $.ajax (
 
 )
 }
+// mostrare infromazioni film al passaggio del mouse
+$(".general").on('mouseenter', '.film .imageFilm', function() {
+  var elementoSelezionato = $(this).children(":hidden");
+  $(elementoSelezionato).addClass("active");
+});
 
-// $(".general .film").on("mouseenter", function() {
-//
-//   $(".info").addClass("active");
-// });
+$(".general").on('mouseleave', '.film', function() {
+  var elementoSelezionato = $(this).children(":hidden");
+  $(".info").removeClass("active");
+});
 
 });

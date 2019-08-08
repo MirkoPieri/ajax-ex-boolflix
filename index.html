@@ -31,18 +31,29 @@
 
       <script id="template" type="text/x-handlebars-template">
         <div class="film">
-          <img src="{{url}}" alt="">
-          <div class="info">
-            <h2>Titolo: {{titolo}}</h2>
-            <h2>Titolo Originale: {{originalTitle}}</h2>
-            <p>Lingua:</p>
-            <p class="lingua">{{lingua}}</p>
-            <br>
-            <span>Valutazione:</span>
-            <span class="valutazione">{{voto}}</span>
-            <br>
-            <p>Tipo: {{tipo}}
+          <div class="imageFilm">
+            <img class="imageClone" src="{{url}}" alt="">
+            <div class="info">
+              <span>Titolo:<span>
+              <p>{{titolo}}</p>
+              <br>
+              <span>Titolo Originale:<span>
+              <p>{{originalTitle}}</p>
+              <br>
+              <span>Lingua:</span>
+              <p class="lingua">{{lingua}}</p>
+              <br>
+              <span>Valutazione:</span>
+              <p class="valutazione">{{voto}}</p>
+              <br>
+              <span>Tipo:</span>
+              <p>{{tipo}}</p>
+              <br>
+              <span>Overview:</span>
+              <p class="overview">{{overview}}</p>
+            </div>
           </div>
+
         </div>
       </script>
 
