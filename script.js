@@ -15,7 +15,8 @@ $("header input").keyup(function() {
   console.log(ricercaUtente);
   // pulizia dell'html ad ogni ricerca
   $(".general").html("");
-
+  //pulizia input ad ogni ricerca
+  $("header input").val("");
 
   // chiamata ajax
   // chiamata per film
