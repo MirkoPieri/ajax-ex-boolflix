@@ -40,12 +40,13 @@ body {
   padding: 200px 0;
   width: 90%;
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
 .general .film {
   margin: 20px 0;
-  width: calc(100% / 5);
+  /* width: calc(100% / 5); */
 }
 
 .imageFilm {
