@@ -56,6 +56,7 @@ body {
 
 .general .film img {
   cursor: pointer;
+
 }
 
 .general .film img:first-child{
@@ -125,4 +126,23 @@ header section a {
 
 .nessuntrovato {
   margin-right: 50px;
+}
+
+.replace {
+  width: 306px;
+  height: 456px;
+  background-color: black;
+  border: 3px solid white;
+  position: relative;
+}
+
+.general .replace p {
+    font-size: 18pt;
+    display: inline;
+    color: white;
+    font-weight: normal;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
