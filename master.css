@@ -1,3 +1,4 @@
+/* disposizioni generali */
 * {
   padding: 0;
   margin: 0;
@@ -8,6 +9,7 @@ body {
   background: lightgray;
 }
 
+/* sezione general */
 .general .film .imageFilm .info p {
     font-size: 13pt;
     display: inline;
@@ -115,11 +117,13 @@ header section a {
   border: 3px solid white;
 }
 
+/* classe per visualizzare informazioni tv/serie */
 .info.active {
   display: block;
   background-color: black;
 }
 
+/* testo da inserire se non viene trovato nulla nella ricerca */
 .nessuntrovato p {
   font-size: 20pt;
 }
@@ -128,6 +132,7 @@ header section a {
   margin-right: 50px;
 }
 
+/* blocco da inserire per mancata presenza copertina tv */
 .replace {
   width: 306px;
   height: 456px;
