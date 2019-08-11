@@ -90,19 +90,19 @@ $("header input").keyup(function() {
                   $(".film .valutazione").each(function() {
                     switch (true) {
                       case votoStella === 1:
-                        $(this).replaceWith('<img src="image/star.png" alt="stella">');
+                        $(this).replaceWith('<i class="fas fa-star"></i>' + '<i class="far fa-star"></i>' + '<i class="far fa-star"></i>' + '<i class="far fa-star"></i>' + '<i class="far fa-star"></i>');
                         break;
                       case votoStella === 2:
-                        $(this).replaceWith('<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">');
+                        $(this).replaceWith('<i class="fas fa-star"></i>' + '<i class="fas fa-star"></i>' + '<i class="far fa-star"></i>' + '<i class="far fa-star"></i>' + '<i class="far fa-star"></i>');
                         break;
                       case votoStella === 3:
-                        $(this).replaceWith('<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">');
+                        $(this).replaceWith('<i class="fas fa-star"></i>' + '<i class="fas fa-star"></i>' + '<i class="fas fa-star"></i>' + '<i class="far fa-star"></i>' + '<i class="far fa-star"></i>');
                         break;
                       case votoStella === 4:
-                      $(this).replaceWith('<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">');
+                      $(this).replaceWith('<i class="fas fa-star"></i>' + '<i class="fas fa-star"></i>' + '<i class="fas fa-star"></i>' + '<i class="fas fa-star"></i>' + '<i class="far fa-star"></i>');
                         break;
                       case votoStella === 5:
-                      $(this).replaceWith('<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">');
+                      $(this).replaceWith('<i class="fas fa-star"></i>' + '<i class="fas fa-star"></i>' + '<i class="fas fa-star"></i>' + '<i class="fas fa-star"></i>' + '<i class="fas fa-star"></i>');
                         break;
                       default:
                     }
@@ -123,9 +123,12 @@ $("header input").keyup(function() {
                       case language === "pt":
                       $(this).replaceWith('<img src="image/pt.png" alt="lingua">');
                         break;
-                        case language === "":
+                      case language === "":
                         $(this).replaceWith('Lingua non disponibile');
-                          break;
+                      break;
+                      case language === "ja":
+                        $(this).replaceWith('<img src="image/ja.png" alt="lingua">');
+                      break;
                       default:
                     }
                   });
@@ -214,19 +217,19 @@ $.ajax (
                         $(".film .valutazione").each(function() {
                           switch (true) {
                             case votoStella === 1:
-                              $(this).replaceWith('<img src="image/star.png" alt="stella">');
+                              $(this).replaceWith('<i class="fas fa-star"></i>' + '<i class="far fa-star"></i>' + '<i class="far fa-star"></i>' + '<i class="far fa-star"></i>' + '<i class="far fa-star"></i>');
                               break;
                             case votoStella === 2:
-                              $(this).replaceWith('<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">');
+                              $(this).replaceWith('<i class="fas fa-star"></i>' + '<i class="fas fa-star"></i>' + '<i class="far fa-star"></i>' + '<i class="far fa-star"></i>' + '<i class="far fa-star"></i>');
                               break;
                             case votoStella === 3:
-                              $(this).replaceWith('<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">');
+                              $(this).replaceWith('<i class="fas fa-star"></i>' + '<i class="fas fa-star"></i>' + '<i class="fas fa-star"></i>' + '<i class="far fa-star"></i>' + '<i class="far fa-star"></i>');
                               break;
                             case votoStella === 4:
-                            $(this).replaceWith('<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">');
+                            $(this).replaceWith('<i class="fas fa-star"></i>' + '<i class="fas fa-star"></i>' + '<i class="fas fa-star"></i>' + '<i class="fas fa-star"></i>' + '<i class="far fa-star"></i>');
                               break;
                             case votoStella === 5:
-                            $(this).replaceWith('<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">' + '<img src="image/star.png" alt="stella">');
+                            $(this).replaceWith('<i class="fas fa-star"></i>' + '<i class="fas fa-star"></i>' + '<i class="fas fa-star"></i>' + '<i class="fas fa-star"></i>' + '<i class="fas fa-star"></i>');
                               break;
                             default:
                         }
@@ -245,11 +248,14 @@ $.ajax (
                               $(this).replaceWith('<img src="image/et.png" alt="lingua">');
                               break;
                             case language === "pt":
-                            $(this).replaceWith('<img src="image/pt.png" alt="lingua">');
-                              break;
-                              case language === "":
+                              $(this).replaceWith('<img src="image/pt.png" alt="lingua">');
+                            break;
+                            case language === "":
                               $(this).replaceWith('Lingua non disponibile');
-                                break;
+                            break;
+                            case language === "ja":
+                            $(this).replaceWith('<img src="image/ja.png" alt="lingua">');
+                              break;
                             default:
                           }
                       });
