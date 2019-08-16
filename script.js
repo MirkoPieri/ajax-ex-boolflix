@@ -45,7 +45,7 @@ $("header input").keyup(function() {
 
               var arrayRisultati = risultato.results;
               var lunghezza = arrayRisultati.length;
-              console.log(lunghezza);
+              console.log(arrayRisultati);
               // condizione se esiste qualcosa cercata dall'utente
               if (lunghezza === 0) {
                 var nessunRisultato = '"' + ricercaUtente + '"' + ", " + "nessun Film trovato.";
@@ -128,6 +128,9 @@ $("header input").keyup(function() {
                       break;
                       case language === "ja":
                         $(this).replaceWith('<img src="image/ja.png" alt="lingua">');
+                      break;
+                      case language === "de":
+                        $(this).replaceWith('<img src="image/de.png" alt="lingua">');
                       break;
                       default:
                     }
@@ -255,7 +258,10 @@ $.ajax (
                             break;
                             case language === "ja":
                             $(this).replaceWith('<img src="image/ja.png" alt="lingua">');
-                              break;
+                            break;
+                            case language === "de":
+                              $(this).replaceWith('<img src="image/de.png" alt="lingua">');
+                            break;
                             default:
                           }
                       });
