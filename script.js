@@ -187,10 +187,38 @@ $.ajax (
 
                   } else {
 
+                      // tentativo aggiunta genere film
+                      // var genereTv = [];
+                      //   $.ajax (
+                      //     {
+                      //       url: "https://api.themoviedb.org/3/genre/tv/list?api_key=7281fa587a1cb4960ded5c5f97ee3e8d",
+                      //       method: "GET",
+                      //       success: function(data) {
+                      //       var genere = data.genres;
+                      //       genereTv.push(genere);
+                      //       },
+                      //       error: function (richiesta,stato,errore) {
+                      //       alert("problema sul server", errore);
+                      //       }
+                      //     }
+                      //   )
+                      //     console.log(genereTv.[0].length, "genere");
+
                         // ciclo per prendere tutti gli elementi restituiti dalla chiamata ajax
                         for (var i = 0; i < lunghezzaTv; i++) {
 
+                          // var genereSerie = arrayRisultatiTv[i].genre_ids;
+                          // console.log(genereSerie,"adesso");
+                          // for (var j = 0; j < genereSerie.length; j++) {
+                          //   for (var z = 0; z < genereTv[0].length; z++) {
+                          //     if (genereSerie[j] === genereTv[z].id) {
+                          //       var genereTrovato = genereTv[z].name;
+                          //       console.log(genereTrovato, "trovato");
+                          //     }
+                          //   }
+                          // }
                         // modifica del voto ad una scala da 1 a 5 con arrotondamento per eccesso
+                        
                         var stella = arrayRisultatiTv[i].vote_average / 2;
                         var votoStella = Math.round(stella);
                         // variabile per salvare la lingua
