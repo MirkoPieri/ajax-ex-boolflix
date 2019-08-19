@@ -27,10 +27,9 @@ $("header input").keyup(function() {
       method: "GET",
       success: function(data) {
         var pagine = data.total_pages;
-        console.log(pagine, 'pagine');
+
         for (var i = 1; i <= pagine; i++) {
           var page = i;
-          console.log(page, 'jajaja');
         //
         $.ajax (
           {
@@ -160,11 +159,11 @@ $.ajax (
     data: {"query": ricercaUtente}, //query per ricerca film digitato
     method: "GET",
     success: function(data) {
+
       var pagine = data.total_pages;
-      console.log(pagine, 'pagine');
+
       for (var i = 1; i <= pagine; i++) {
         var page = i;
-        console.log(page, 'jajaja');
 
       $.ajax (
         {
@@ -177,7 +176,7 @@ $.ajax (
               console.log(risultatoTv);
               var arrayRisultatiTv = risultatoTv.results;
               var lunghezzaTv = arrayRisultatiTv.length;
-              console.log(lunghezzaTv);
+
               if (lunghezzaTv === 0) {
                     var nessunRisultato = '"' + ricercaUtente + '"' + ", " + "nessuna serieTv trovata.";
                     var source   = document.getElementById("template1").innerHTML;
@@ -190,6 +189,7 @@ $.ajax (
 
                         // ciclo per prendere tutti gli elementi restituiti dalla chiamata ajax
                         for (var i = 0; i < lunghezzaTv; i++) {
+
                         // modifica del voto ad una scala da 1 a 5 con arrotondamento per eccesso
                         var stella = arrayRisultatiTv[i].vote_average / 2;
                         var votoStella = Math.round(stella);
