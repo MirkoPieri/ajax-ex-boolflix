@@ -27,34 +27,37 @@ $("header input").keyup(function() {
       method: "GET",
       success: function(data) {
         var pagine = data.total_pages;
-
+        var risultato = data;
+        var arrayRisultati = risultato.results;
+        var lunghezza = arrayRisultati.length;
+        console.log(lunghezza);
+        // condizione se esiste qualcosa cercata dall'utente
+        if (lunghezza === 0) {
+          var nessunRisultato = '"' + ricercaUtente + '"' + ", " + "nessun Film trovato.";
+          var source   = document.getElementById("template1").innerHTML;
+          var template = Handlebars.compile(source);
+          var context = {notfound: nessunRisultato};
+          var html = template(context);
+          $(".general").append(html);
+        } else {
+          // for per stampare tutte le pagine
         for (var i = 1; i <= pagine; i++) {
           var page = i;
-        //
-        $.ajax (
-          {
-            url: "https://api.themoviedb.org/3/search/movie?api_key=7281fa587a1cb4960ded5c5f97ee3e8d",
-            data: {"query": ricercaUtente, "page": page }, //query per ricerca film digitato
-            method: "GET",
-            success: function(data) {
 
-              var risultato = data;
-              console.log(risultato);
+          $.ajax (
+            {
+              url: "https://api.themoviedb.org/3/search/movie?api_key=7281fa587a1cb4960ded5c5f97ee3e8d",
+              data: {"query": ricercaUtente, "page": page }, //query per ricerca film digitato
+              method: "GET",
+              success: function(data) {
 
+                var risultato = data;
+                console.log(risultato);
 
-              var arrayRisultati = risultato.results;
-              var lunghezza = arrayRisultati.length;
-              console.log(arrayRisultati);
-              // condizione se esiste qualcosa cercata dall'utente
-              if (lunghezza === 0) {
-                var nessunRisultato = '"' + ricercaUtente + '"' + ", " + "nessun Film trovato.";
-                var source   = document.getElementById("template1").innerHTML;
-                var template = Handlebars.compile(source);
-                var context = {notfound: nessunRisultato};
-                var html = template(context);
-                $(".general").append(html);
-              } else {
-              // handlebars per stampare su schermo i risultati
+                var arrayRisultati = risultato.results;
+                var lunghezza = arrayRisultati.length;
+
+                // handlebars per stampare su schermo i risultati
 
                 // ciclo per prendere tutti gli elementi restituiti dalla chiamata ajax
                 for (var i = 0; i < lunghezza; i++) {
@@ -135,13 +138,14 @@ $("header input").keyup(function() {
                     }
                   });
                 }
-              }
+              // }
             },
             error: function (richiesta,stato,errore) {
               alert("problema sul server", errore);
             }
-        }); // chiusura seconda chiamata
-      } //chiusura for pagine
+          }); // chiusura seconda chiamata
+        } //chiusura for pagine
+      }
       },
       error: function (richiesta,stato,errore) {
         alert("problema sul server", errore);
@@ -162,6 +166,21 @@ $.ajax (
 
       var pagine = data.total_pages;
 
+      var risultatoTv = data;
+      console.log(risultatoTv);
+      var arrayRisultatiTv = risultatoTv.results;
+      var lunghezzaTv = arrayRisultatiTv.length;
+
+      if (lunghezzaTv === 0) {
+            var nessunRisultato = '"' + ricercaUtente + '"' + ", " + "nessuna serieTv trovata.";
+            var source   = document.getElementById("template1").innerHTML;
+            var template = Handlebars.compile(source);
+            var context = {notfound: nessunRisultato};
+            var html = template(context);
+            $(".general").append(html);
+
+    } else {
+
       for (var i = 1; i <= pagine; i++) {
         var page = i;
 
@@ -176,16 +195,6 @@ $.ajax (
               console.log(risultatoTv);
               var arrayRisultatiTv = risultatoTv.results;
               var lunghezzaTv = arrayRisultatiTv.length;
-
-              if (lunghezzaTv === 0) {
-                    var nessunRisultato = '"' + ricercaUtente + '"' + ", " + "nessuna serieTv trovata.";
-                    var source   = document.getElementById("template1").innerHTML;
-                    var template = Handlebars.compile(source);
-                    var context = {notfound: nessunRisultato};
-                    var html = template(context);
-                    $(".general").append(html);
-
-                  } else {
 
                       // tentativo aggiunta genere film
                       // var genereTv = [];
@@ -218,7 +227,7 @@ $.ajax (
                           //   }
                           // }
                         // modifica del voto ad una scala da 1 a 5 con arrotondamento per eccesso
-                        
+
                         var stella = arrayRisultatiTv[i].vote_average / 2;
                         var votoStella = Math.round(stella);
                         // variabile per salvare la lingua
@@ -294,7 +303,7 @@ $.ajax (
                           }
                       });
                     }
-                  }
+
 
               },
               error: function (richiesta,stato,errore) {
@@ -302,6 +311,7 @@ $.ajax (
               }
           }); // chiusura seconda chiamata serie tv
         } //chiusura for pagine serie tv
+       }
       },
       error: function (richiesta,stato,errore) {
       alert("problema sul server", errore);
