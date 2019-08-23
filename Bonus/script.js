@@ -78,7 +78,7 @@ $("header input").keyup(function() {
                     var source   = document.getElementById("templateNull").innerHTML;
                     var template = Handlebars.compile(source);
 
-                    var context = {titoloInserito: arrayRisultati[i].title, titolo: arrayRisultati[i].title, originalTitle: arrayRisultati[i].original_title, lingua: arrayRisultati[i].original_language, voto: votoStella, tipo: "Film", overview: arrayRisultati[i].overview };
+                    var context = {titoloInserito: arrayRisultati[i].title, titolo: arrayRisultati[i].title, originalTitle: arrayRisultati[i].original_title, lingua: arrayRisultati[i].original_language, voto: votoStella, tipo: "Film", overview: arrayRisultati[i].overview};
                   } else {
                     var source   = document.getElementById("template").innerHTML;
                     var template = Handlebars.compile(source);
@@ -242,7 +242,7 @@ $.ajax (
                         if (immagine == null) {
                           var source   = document.getElementById("templateNull").innerHTML;
                           var template = Handlebars.compile(source);
-                          var context = {titoloInserito: arrayRisultatiTv[i].name, titolo: arrayRisultatiTv[i].name, originalTitle: arrayRisultatiTv[i].original_name, lingua: arrayRisultatiTv[i].original_language, voto: votoStella, overview: arrayRisultatiTv[i].overview};
+                          var context = {titolo: arrayRisultatiTv[i].name, originalTitle: arrayRisultatiTv[i].original_name, lingua: arrayRisultatiTv[i].original_language, voto: votoStella, overview: arrayRisultatiTv[i].overview, titoloInserito: arrayRisultatiTv[i].name};
                         } else {
                           var source   = document.getElementById("template").innerHTML;
                           var template = Handlebars.compile(source);
@@ -329,5 +329,7 @@ $(".general").on('mouseleave', '.film', function() {
   var elementoSelezionato = $(this).children(":hidden");
   $(".info").removeClass("active");
 });
+
+
 
 });
