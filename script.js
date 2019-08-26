@@ -30,7 +30,6 @@ $("header input").keyup(function() {
         var risultato = data;
         var arrayRisultati = risultato.results;
         var lunghezza = arrayRisultati.length;
-        console.log(lunghezza);
         // condizione se esiste qualcosa cercata dall'utente
         if (lunghezza === 0) {
           var nessunRisultato = '"' + ricercaUtente + '"' + ", " + "nessun Film trovato.";
@@ -47,11 +46,12 @@ $("header input").keyup(function() {
           $.ajax (
             {
               url: "https://api.themoviedb.org/3/search/movie?api_key=7281fa587a1cb4960ded5c5f97ee3e8d",
-              data: {"query": ricercaUtente, "page": page }, //query per ricerca film digitato
+              data: {"query": ricercaUtente, "page": page, "language": "it-IT" }, //query per ricerca film digitato
               method: "GET",
               success: function(data) {
 
                 var risultato = data;
+                console.log('film');
                 console.log(risultato);
 
                 var arrayRisultati = risultato.results;
@@ -64,12 +64,10 @@ $("header input").keyup(function() {
                   // modifica del voto ad una scala da 1 a 5 con arrotondamento per eccesso
                   var stella = arrayRisultati[i].vote_average / 2;
                   var votoStella = Math.round(stella);
+
                   // variabile per salvare la lingua
                   var language = arrayRisultati[i].original_language;
-                  // condizione se il film è senza classificazione
-                  if (votoStella === 0) {
-                    votoStella = "Non Classificato";
-                  }
+
 
                   var immagine = arrayRisultati[i].poster_path;
                   // stampa dei risultati a schermo
@@ -91,6 +89,9 @@ $("header input").keyup(function() {
                   // funzione per sostituire le varie valutazioni con le rispettive stelle
                   $(".film .valutazione").each(function() {
                     switch (true) {
+                      case votoStella === 0:
+                        $(this).replaceWith('<p>Non Classificato</p>');
+                        break;
                       case votoStella === 1:
                         $(this).replaceWith('<i class="fas fa-star"></i>' + '<i class="far fa-star"></i>' + '<i class="far fa-star"></i>' + '<i class="far fa-star"></i>' + '<i class="far fa-star"></i>');
                         break;
@@ -167,7 +168,7 @@ $.ajax (
       var pagine = data.total_pages;
 
       var risultatoTv = data;
-      console.log(risultatoTv);
+
       var arrayRisultatiTv = risultatoTv.results;
       var lunghezzaTv = arrayRisultatiTv.length;
 
@@ -187,11 +188,12 @@ $.ajax (
       $.ajax (
         {
           url: "https://api.themoviedb.org/3/search/tv?api_key=7281fa587a1cb4960ded5c5f97ee3e8d",
-          data: {"query": ricercaUtente, "page": page }, //query per ricerca film digitato
+          data: {"query": ricercaUtente, "page": page, 'language': "it-IT"}, //query per ricerca serie digitato
           method: "GET",
           success: function(data) {
 
               var risultatoTv = data;
+              console.log('tv');
               console.log(risultatoTv);
               var arrayRisultatiTv = risultatoTv.results;
               var lunghezzaTv = arrayRisultatiTv.length;
@@ -229,13 +231,11 @@ $.ajax (
                         // modifica del voto ad una scala da 1 a 5 con arrotondamento per eccesso
 
                         var stella = arrayRisultatiTv[i].vote_average / 2;
-                        var votoStella = Math.round(stella);
+                          var votoStella = Math.round(stella);
                         // variabile per salvare la lingua
                         var language = arrayRisultatiTv[i].original_language;
-                        // condizione se il film è senza classificazione
-                          if (votoStella === 0) {
-                            votoStella = "Non Classificato";
-                          }
+
+
                         // variabile per salvare url immagine
                         var immagine = arrayRisultatiTv[i].poster_path;
                         // cindizione per verificare presenza copertina serieTv
@@ -252,10 +252,12 @@ $.ajax (
                         // stampa dei risultati a schermo
                         var html = template(context);
                         $(".general").append(html);
-
                         // funzione per sostituire le varie valutazioni con le rispettive stelle
                         $(".film .valutazione").each(function() {
                           switch (true) {
+                            case votoStella === 0:
+                              $(this).replaceWith('<p>Non Classificato</p>');
+                              break;
                             case votoStella === 1:
                               $(this).replaceWith('<i class="fas fa-star"></i>' + '<i class="far fa-star"></i>' + '<i class="far fa-star"></i>' + '<i class="far fa-star"></i>' + '<i class="far fa-star"></i>');
                               break;
