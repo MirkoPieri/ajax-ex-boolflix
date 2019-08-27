@@ -134,6 +134,11 @@ header section a {
   margin-bottom: 150px;
 }
 
+/* colorazione stelle valutazione film/serieTv */
+i.fas {
+  color: #ffd700;
+}
+
 /* blocco da inserire per mancata presenza copertina tv */
 .replace {
   width: 306px;
